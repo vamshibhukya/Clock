@@ -1,0 +1,55 @@
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Clock Time</title>
+		<style>
+
+			body{
+				background-color: black;
+			}
+			div{
+
+				position: absolute;
+				color: blue;
+				top:50%;
+				left: 50%;
+				transform: translateX(-50%) translateY(-50%);
+				font-size: 70px;
+				letter-spacing: 6px;
+			}
+		</style>
+		<meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<div id="Time"></div>
+		<script type="text/javascript">
+function showTime(){
+		
+			var date = new Date();
+			var h =date.getHours();
+			var m =date.getMinutes();
+			var s =date.getSeconds();
+			var session="AM";
+
+			if(h==0){
+				h = 12;
+			}
+
+			if(h>12){
+				h = h-12;
+				session="PM";
+			}
+			h=(h<10)?"0"+h:h; //ternary operator.
+			m=(m<10)?"0"+m:m;
+			s=(s<10)?"0"+s:s;
+			document.getElementById("Time").innerHTML = h +":"+m+":"+s+" "+session;
+
+			setTimeout(showTime,1000);
+		
+	}
+	showTime();
+</script>
+	</body>
+	</html>
